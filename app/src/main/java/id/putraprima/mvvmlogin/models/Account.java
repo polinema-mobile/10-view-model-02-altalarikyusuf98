@@ -3,9 +3,9 @@ package id.putraprima.mvvmlogin.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Account implements Parcelable {
-    String username;
-    String password;
+public class Account {
+    public String username = "altalarik@mail.com";
+    public String password = "polinema";
 
     public Account() {
     }
@@ -19,18 +19,6 @@ public class Account implements Parcelable {
         username = in.readString();
         password = in.readString();
     }
-
-    public static final Creator<Account> CREATOR = new Creator<Account>() {
-        @Override
-        public Account createFromParcel(Parcel in) {
-            return new Account(in);
-        }
-
-        @Override
-        public Account[] newArray(int size) {
-            return new Account[size];
-        }
-    };
 
     public String getUsername() {
         return username;
@@ -48,14 +36,4 @@ public class Account implements Parcelable {
         this.password = password;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(username);
-        parcel.writeString(password);
-    }
 }
